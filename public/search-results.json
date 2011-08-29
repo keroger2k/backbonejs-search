@@ -1,0 +1,52 @@
+{
+    "Count": 10,
+    "Time": "00:01",
+    "Files": 
+    [
+      {
+        "FileName": "file1",
+        "Url": "/music/blue.mp3",
+        "Excerpt": "Excerpt1"
+      },
+      {
+        "FileName": "file1",
+        "Url": "/music/blue.mp3",
+        "Excerpt": "Excerpt1"
+      },
+      {
+        "FileName": "file1",
+        "Url": "/music/blue.mp3",
+        "Excerpt": "Excerpt1"
+      },
+      {
+        "FileName": "file1",
+        "Url": "/music/blue.mp3",
+        "Excerpt": "Excerpt1"
+      },
+      {
+        "FileName": "file1",
+        "Url": "/music/blue.mp3",
+        "Excerpt": "Excerpt1"
+      },
+      {
+        "FileName": "file1",
+        "Url": "/music/blue.mp3",
+        "Excerpt": "Excerpt1"
+      },
+      {
+        "FileName": "file1",
+        "Url": "/music/blue.mp3",
+        "Excerpt": "Excerpt1"
+      },
+      {
+        "FileName": "file1",
+        "Url": "/music/blue.mp3",
+        "Excerpt": "Excerpt1"
+      },
+      {
+        "FileName": "file1",
+        "Url": "/music/blue.mp3",
+        "Excerpt": "Excerpt1"
+      }
+    ]
+}

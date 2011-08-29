@@ -1,0 +1,54 @@
+<!doctype html>
+
+<!--[if lt IE 7]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+
+    <title>Backbone Tunes</title>
+    <meta name="author" content="David Goodlad <david@goodlad.ca>">
+
+    <link rel="stylesheet" href="style/screen.css" media="screen, projection">
+    <link rel="stylesheet" href="style/fancypants.css" media="screen, projection">
+
+    <script src="js/vendor/modernizr-1.6.min.js"></script>
+    <script src="js/vendor/jquery-1.6.2.js"></script>
+    <script src="js/vendor/jquery.tmpl.js"></script>
+    <script src="js/vendor/underscore.js"></script>
+    <script src="js/vendor/backbone.js"></script>
+    <script src="js/search.js"></script>
+  </head>
+
+  <script type="text/template" id="google-template">
+    <h1>Search</h1>
+    <input type="text" id="search"/>
+    <input type="submit" value="Search" />
+  </script>
+
+  <body>
+    <div id="container">
+    </div>
+<script type="text/html" id="queryview-template">
+  <div id="search-container">
+    <h1 class="logo"><a href="/">Archive Search</a></h1>
+    <form action="/" method="post" id="search-form" name="search-form">
+        <input type="text" name="search" id="search" value="${text}" />
+        <input class="button" type="submit" value="Search" />
+    </form>
+    <div id="result-stats">
+      About ${count} results <nobr>(${time} seconds)</nobr>
+    </div> 
+  </div>
+</script>
+<script type="text/html" id="files-template">
+  <li>
+    <input type="checkbox" name="filelink" />
+    <a class="file-link" target="_blank" href="/search/download?file=${Url}">${FileName}</a>
+    <code class="file-excerpt">{{html Excerpt}}</code>
+  </li>
+</script>
+  </body>
+</html>
