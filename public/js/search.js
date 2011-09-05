@@ -54,6 +54,29 @@ jQuery.download = function(url, data, method){
   window.query = new Query();
   window.files = new Files();
 
+  FileView = Backbone.View.extend({
+    tagName: 'li',
+   
+    events: {
+      'change input[type=checkbox]' : 'select'
+    },
+
+    initialize: function() { 
+      this.template = $('#file-template');
+    },
+
+    render: function() {
+      var content = this.template.tmpl(this.model.toJSON());
+      $(this.el).html(content);
+      return this;
+    },
+
+    select: function(e) {
+      console.log(e, this);
+    }
+
+  });
+
   HelpView = Backbone.View.extend({
     
     events: {
@@ -85,17 +108,21 @@ jQuery.download = function(url, data, method){
   });
   
   ResultsView = Backbone.View.extend({
-    
+
     initialize: function() {
-      this.template = $('#file-template');
       this.collection.bind('reset', this.render, this);
     },
 
     render: function() {
-      var content = this.template.tmpl(this.collection.toJSON());
-      $(this.el).html(content);
-      return this;
-    }
+      $(this.el).empty();
+		  var els = [];
+		  this.collection.each(function(model){
+			  var view = new FileView({model : model});
+		    els.push(view.render().el);
+		  });
+		  $(this.el).append(els);
+		  return this;
+    },
 
   });
 
