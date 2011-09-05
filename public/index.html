@@ -1,10 +1,5 @@
 <!doctype html>
-
-<!--[if lt IE 7]> <html lang="en" class="no-js ie6"> <![endif]-->
-<!--[if IE 7]>    <html lang="en" class="no-js ie7"> <![endif]-->
-<!--[if IE 8]>    <html lang="en" class="no-js ie8"> <![endif]-->
-<!--[if IE 9]>    <html lang="en" class="no-js ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<html lang="en" class="no-js"> <!--<![endif]-->
   <head>
     <meta charset="utf-8">
 
@@ -29,26 +24,251 @@
   </script>
 
   <body>
-    <div id="container">
+    <style type="text/css">
+      html, body { margin: 0; height: 100%; width: 100%; overflow: hidden; }
+      body { font-size: 16px; line-height: 1.231; }
+      div.wa { left: 4%; width: 92%; top: 5%; z-index: 1002; color: #fff; position: fixed; text-align: center; font-family: arial,sans-serif; font-weight: bold; background: #222 none repeat scroll 0; overflow: hidden; }
+      .wa { opacity: .85; border-radius: 10px; }
+      div.wc { padding: 1em; }
+      table.wf, table.wd { width: 100%; }
+      .cf { border-collapse: collapse; }
+      .wk { font-size: 100%; white-space: nowrap; text-align: left; }
+      .Dp { padding-bottom: .8ex; }
+      body, td, input, textarea, select { margin: 0; font-family: arial,sans-serif; }
+      .wj { color: #dd0; text-align: right; }
+      .wi { cursor: pointer; text-decoration: underline; color: #dd0; }
+      table.wd { border-top: 1px solid #999; font-size: 80%; }
+      .Dn { vertical-align: top; padding-top: .15em; }
+      .Do { color: #dd0; padding-top: .8em; text-align: left; }
+      table.wd td.wg { font-weight: bold; padding-right: .3em; text-align: right; white-space: nowrap; }
+      table.wd td.we { font-weight: normal; text-align: left; }
+      table.wd { font-size: 80%; }
+      span.wh { font-family: "courier new" ,monospace; color: #dd0; }
+      .wb { font-weight: bold; padding-left: 10px; display: block; text-align: left; }
+      table.me tr { padding: 1px; display: block; }
+      table.wd a, table.wd a:active, table.wd a:visited { color: #dd0; text-decoration: none; }
+    </style>
+    <div class="wa" id="help-view" style="display: none;">
+      <div class="wc" role="alert">
+        <table cellpadding="0" class="cf wf">
+          <tbody>
+            <tr>
+              <td class="wk Dp">
+                Archive Searching Help Menu
+              </td>
+              <td class="wj Dp">
+                <span role="link" class="wi">Close</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <table cellpadding="0" class="cf wd">
+          <tbody>
+            <tr>
+              <td class="Dn">
+                <table cellpadding="0" class="cf me">
+                  <tbody>
+                    <tr>
+                      <th class="Do">
+                        Terms
+                      </th>
+                    </tr>
+                    <tr>
+                      <td class="we Dn" colspan="2">
+                        A query is broken up into terms and operators. There are two types of terms: Single
+                        Terms and Phrases.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="we Dn" colspan="2">
+                        A Single Term is a single word such as "test" or "hello".
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="we Dn" colspan="2">
+                        A Phrase is a group of words surrounded by double quotes such as "hello dolly".
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="we Dn" colspan="2">
+                        Multiple terms can be combined together with Boolean operators to form a more complex
+                        query (see below).
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="Do">
+                        Fields
+                      </th>
+                    </tr>
+                    <tr>
+                      <td class="we Dn" colspan="2">
+                        As an example, let's assume a Archive Search index contains two fields, title and text and
+                        text is the default field. If you want to find the file entitled "QUAN-U00-IR-01" which contains the text "alias exec", you can enter:
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="wb Dn" colspan="2">
+                        <span class="wb">file:"QUAN-U00-IR-01" AND text:"alias exec" </span>
+                        <span class="wb">file:"QUAN-U00-IR-01" AND alias</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="Do">
+                        Wildcard Searches
+                      </th>
+                    </tr>
+                    <tr>
+                      <td class="we Dn" colspan="2">
+                        To perform a single character wildcard search use the "?" symbol.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="we Dn" colspan="2">
+                        To perform a multiple character wildcard search use the "*" symbol.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="we Dn" colspan="2">
+                        Note: You cannot use a * or ? symbol as the first character of a search.
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="Do">
+                        Fuzzy Searches
+                      </th>
+                    </tr>
+                    <tr>
+                      <td class="we Dn" colspan="2">
+                        To do a fuzzy search use the tilde, "~", symbol at the end of a Single word Term.
+                        For example to search for a term similar in spelling to "roam" use the fuzzy search:
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="wb Dn" colspan="2">
+                        <span class="wb">roam~</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="we Dn" colspan="2">
+                        This search will find terms like foam and roams.
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="Do">
+                        Proximity Searches
+                      </th>
+                    </tr>
+                    <tr>
+                      <td class="we Dn" colspan="2">
+                        Archive Search supports finding words are a within a specific distance away. To do a proximity
+                        search use the tilde, "~", symbol at the end of a Phrase. For example to search
+                        for a "apache" and "jakarta" within 10 words of each other in a document use the
+                        search:
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="wb Dn" colspan="2">
+                        <span class="wb">"jakarta apache"~10</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="Do">
+                        Boolean Operators
+                      </th>
+                    </tr>
+                    <tr>
+                      <td class="we Dn" colspan="2">
+                        Boolean operators allow terms to be combined through logic operators. Archive Search supports
+                        AND, "+", OR, NOT and "-" as Boolean operators(Note: Boolean operators must be ALL
+                        CAPS).
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="wb Dn" colspan="2">
+                        <span class="wb">"jakarta apache" OR jakarta</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="wb Dn" colspan="2">
+                        <span class="wb">"jakarta apache" AND "Apache Archive Search"</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="Do">
+                        Grouping
+                      </th>
+                    </tr>
+                    <tr>
+                      <td class="we Dn" colspan="2">
+                        Archive Search supports using parentheses to group clauses to form sub queries. This can
+                        be very useful if you want to control the boolean logic for a query.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="wb Dn" colspan="2">
+                        <span class="wb">"jakarta apache" OR jakarta</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="wb Dn" colspan="2">
+                        <span class="wb">(jakarta OR apache) AND website</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="Do">
+                        <a href="http://Archive Search.apache.org/java/2_4_0/queryparsersyntax.html">More Info</a>
+                      </th>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-<script type="text/html" id="queryview-template">
-  <div id="search-container">
-    <h1 class="logo"><a href="/">Archive Search</a></h1>
-    <form action="/" method="post" id="search-form" name="search-form">
+    <div id="search-container">
+      <h1 class="logo">
+        <a href="/">Archive Search</a></h1>
+      <div id="search-form">
+      </div>
+      <div id="result-stats">
+        &nbsp;</div>
+    </div>
+    <div id="leftnav">
+    </div>
+    <ul id="search-results">
+    </ul>
+    <div id="pager">
+    </div>
+    <script type="text/template" id="form-template">
+      <form action="/" method="post" id="search-form" name="search-form">
         <input type="text" name="search" id="search" value="${text}" />
         <input class="button" type="submit" value="Search" />
-    </form>
-    <div id="result-stats">
+      </form>
+    </script>
+    <script type="text/template" id="stats-template">
       About ${count} results <nobr>(${time} seconds)</nobr>
-    </div> 
-  </div>
-</script>
-<script type="text/html" id="files-template">
-  <li>
-    <input type="checkbox" name="filelink" />
-    <a class="file-link" target="_blank" href="/search/download?file=${Url}">${FileName}</a>
-    <code class="file-excerpt">{{html Excerpt}}</code>
-  </li>
-</script>
+    </script>
+    <script type="text/html" id="file-template">
+      <li>
+        <input type="checkbox" name="filelink" />
+        <a class="file-link" target="_blank" href="/search/download?file=${Url}">${FileName}</a>
+        <code class="file-excerpt">{{html Excerpt}}</code>
+      </li>
+    </script>
+    <script type="text/template" id="pager-template">
+      <nav>
+      <button class="control prev">Prev</button>
+      <button class="control next">Next</button>
+      </nav>
+    </script>
+    <script type="text/template" id="menu-template">
+      <ul class="task-menu">
+        <li><a class="control selected" href="">Download Selected</a></li>
+        <li><a class="control all" href="">Download All</a></li>
+      </ul>
+    </script>
+
   </body>
 </html>
