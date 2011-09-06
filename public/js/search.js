@@ -25,11 +25,6 @@ jQuery.download = function(url, data, method){
 
   Query = Backbone.Model.extend({
     url: "/search",
-    defaults: {
-      text: '',
-      count: 0,
-      time: '00:00'
-    },
 
     initialize: function() {
       this.bind('change:text', this.render);
@@ -53,6 +48,7 @@ jQuery.download = function(url, data, method){
   
   window.query = new Query();
   window.files = new Files();
+  window.download = new Files();
 
   FileView = Backbone.View.extend({
     tagName: 'li',
@@ -72,7 +68,11 @@ jQuery.download = function(url, data, method){
     },
 
     select: function(e) {
-      console.log(e, this);
+      if(window.download.getByCid(this.model.cid)) {
+        window.download.remove(this.model);
+      } else {
+        window.download.add(this.model)
+      }
     }
 
   });
@@ -182,6 +182,22 @@ jQuery.download = function(url, data, method){
 
   });
 
+  DownloadView = Backbone.View.extend({
+    
+    initialize: function() {
+      this.template = $('#download-item-template');
+      this.collection.bind("add", this.render, this);
+      this.collection.bind("remove", this.render, this);
+    },
+
+    render: function() {
+      var content = this.template.tmpl(this.collection.toJSON());
+      $(this.el).html(content);
+      return this;
+    }
+
+  });
+
   Google = Backbone.Router.extend({
     
     initialize: function() {
@@ -190,7 +206,8 @@ jQuery.download = function(url, data, method){
       this.resultsView = new ResultsView({ model: window.query, collection: window.files, el: $("#search-results") });
       this.helpView = new HelpView({ el: $("body") });
       this.statsView = new StatsView({ model: window.query, el: $('#result-stats') });
-      this.menuView = new MenuView({ model: window.query, el: $('#leftnav') });
+      this.menuView = new MenuView({ model: window.query, el: $('#menu') });
+      this.downloadView = new DownloadView({ collection: window.download, el: $('#download-list') });
     },
 
     routes: {

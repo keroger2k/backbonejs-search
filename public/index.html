@@ -236,11 +236,23 @@
         &nbsp;</div>
     </div>
     <div id="leftnav">
+      <div id="menu">
+
+      </div>
+     <div>
+        <ul id="download-list">
+
+        </ul>
+        
+      </div>
     </div>
     <ul id="search-results">
     </ul>
     <div id="pager">
     </div>
+    <script type="text/template" id="download-item-template">
+      <li>${FileName}</li>
+    </script>
     <script type="text/template" id="form-template">
       <form action="/" method="post" id="search-form" name="search-form">
         <input type="text" name="search" id="search" value="${text}" />
@@ -267,6 +279,5 @@
         <li><a class="control all" href="">Download All</a></li>
       </ul>
     </script>
-
   </body>
 </html>
