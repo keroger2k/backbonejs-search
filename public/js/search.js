@@ -187,7 +187,7 @@ jQuery.download = function(url, data, method){
     initialize: function() {
       this.template = $('#download-item-template');
       this.collection.bind("add", this.render, this);
-      this.collection.bind("remove", this.render, this);
+      this.collection.bind("", this.render, this);
     },
 
     render: function() {
